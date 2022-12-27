@@ -1,4 +1,4 @@
-import { fail, redirect } from '@sveltejs/kit';
+import { redirect } from '@sveltejs/kit';
 import { getTodo, updateTodo, wait } from '$lib/data/todoData';
 
 export function load({ url }) {

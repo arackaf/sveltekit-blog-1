@@ -9,11 +9,13 @@
 <form use:enhance method="post" action="?/editTodo">
 	<input name="id" type="hidden" value={todo.id} />
 	<input name="title" value={todo.title} />
+
 	<div>
 		{#each currentTags as tag}
 			<span style={`color: ${tag.color};`}>{tag.name}</span>
 		{/each}
 	</div>
+
 	<button>Save</button>
 </form>
 

@@ -1,9 +1,11 @@
-import { todos } from '$lib/data/todoData';
+import { getTodos, getTags } from '$lib/data/todoData';
 
 export function load() {
-	const result = todos();
+	const todos = getTodos();
+	const tags = getTags();
 
 	return {
-		todos: result
+		todos,
+		tags
 	};
 }

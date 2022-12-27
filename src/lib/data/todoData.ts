@@ -1,4 +1,4 @@
-let _todos = [
+let todos = [
 	{ id: 1, title: 'Write SvelteKit intro blog post', assigned: 'Adam', tags: [1] },
 	{ id: 2, title: 'Write SvelteKit advanced data loading blog post', assigned: 'Adam', tags: [1] },
 	{ id: 3, title: 'Prepare RenderATL talk', assigned: 'Adam', tags: [2] },
@@ -6,7 +6,7 @@ let _todos = [
 	{ id: 5, title: "Edit Adam's blog posts", assigned: 'Geoff', tags: [4] }
 ];
 
-let _tags = [
+let tags = [
 	{ id: 1, name: 'SvelteKit Content', color: 'ded' },
 	{ id: 2, name: 'Conferences', color: 'purple' },
 	{ id: 3, name: 'SvelteKit Development', color: 'pink' },
@@ -15,18 +15,21 @@ let _tags = [
 
 const wait = async () => new Promise((res) => setTimeout(res, 100));
 
-export async function todos() {
+export async function getTodos() {
 	await wait();
 
-	return { todos: _todos };
+	return todos;
 }
 
-export async function tags() {
+export async function getTags() {
 	await wait();
 
-	return { tags: _tags };
+	return tags.reduce((lookup, tag) => {
+		lookup[tag.id] = tag;
+		return lookup;
+	}, {});
 }
 
 export async function todo(id: number) {
-	return _todos.find((t) => t.id == id);
+	return todos.find((t) => t.id == id);
 }

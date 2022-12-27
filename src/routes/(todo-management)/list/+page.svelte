@@ -10,6 +10,7 @@
 			<th>Task</th>
 			<th>Tags</th>
 			<th>Assigned</th>
+			<th>Edit</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -18,6 +19,7 @@
 				<td>{t.title}</td>
 				<td>{t.tags.map((id) => tags[id].name).join(', ')}</td>
 				<td>{t.assigned}</td>
+				<td><a href={`/details?id=${t.id}`}>Edit</a></td>
 			</tr>
 		{/each}
 	</tbody>

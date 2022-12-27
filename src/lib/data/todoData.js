@@ -30,6 +30,6 @@ export async function getTags() {
 	}, {});
 }
 
-export async function todo(id: number) {
+export async function getTodo(id) {
 	return todos.find((t) => t.id == id);
 }

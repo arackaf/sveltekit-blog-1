@@ -7,13 +7,13 @@ let todos = [
 ];
 
 let tags = [
-	{ id: 1, name: 'SvelteKit Content', color: 'ded' },
+	{ id: 1, name: 'SvelteKit Content', color: 'red' },
 	{ id: 2, name: 'Conferences', color: 'purple' },
 	{ id: 3, name: 'SvelteKit Development', color: 'pink' },
 	{ id: 4, name: 'CSS-Tricks Admin', color: 'blue' }
 ];
 
-const wait = async () => new Promise((res) => setTimeout(res, 100));
+export const wait = async amount => new Promise(res => setTimeout(res, amount ?? 100));
 
 export async function getTodos() {
 	await wait();
@@ -31,5 +31,10 @@ export async function getTags() {
 }
 
 export async function getTodo(id) {
-	return todos.find((t) => t.id == id);
+	return todos.find(t => t.id == id);
+}
+
+export async function updateTodo(id, newTitle) {
+	const todo = todos.find(t => t.id == id);
+	Object.assign(todo, { title: newTitle });
 }

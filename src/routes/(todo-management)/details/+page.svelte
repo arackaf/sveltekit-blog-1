@@ -1,8 +1,8 @@
 <script>
-	import { page } from '$app/stores';
 	import { enhance } from '$app/forms';
 
-	$: ({ todo, tags } = $page.data);
+	export let data;
+	$: ({ todo, tags } = data);
 	$: currentTags = todo.tags.map(id => tags[id]);
 </script>
 

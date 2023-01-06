@@ -1,7 +1,6 @@
 <script>
-	import { page } from '$app/stores';
-
-	$: ({ todos, tags } = $page.data);
+	export let data;
+	$: ({ todos, tags } = data);
 </script>
 
 <table cellspacing="10" cellpadding="10">
@@ -17,9 +16,9 @@
 		{#each todos as t}
 			<tr>
 				<td>{t.title}</td>
-				<td>{t.tags.map((id) => tags[id].name).join(', ')}</td>
+				<td>{t.tags.map(id => tags[id].name).join(', ')}</td>
 				<td>{t.assigned}</td>
-				<td><a href={`/details?id=${t.id}`}>Edit</a></td>
+				<td><a href="/details?id={t.id}">Edit</a></td>
 			</tr>
 		{/each}
 	</tbody>
